@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.urls import include
+from medplus import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('medplus/', include('medplus.urls', namespace='medplus')),
+    path('', views.dashboard, name='dashboard'),
+
 ]
