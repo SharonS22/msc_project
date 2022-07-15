@@ -10,4 +10,4 @@ urlpatterns = [
     path('data/', views.data, name='data'),
     path('map/', views.map, name='map'),
     path('subscribe/', views.subscribe, name='subscribe'),
-]
+] 

@@ -1,16 +1,62 @@
 <!DOCTYPE html>
 
+{% load staticfiles %}
+
+<!-- comments -->
 <html>
     <head>
         <title>Medplus</title>
     </head>
 
     <body>
-        <h1>Medplus says...</h1>
+        <h1>Medplus Dashboard</h1>
         <div>
-            hey there partner! <br />
-            <strong>{{ boldmessage }}</strong><br />
+            Welcome to Medplus! <br />
         </div>
+
+        <h2>Last Reported Outbreak</h2>
+        
+
+        <div>
+            {% if last_reported %}
+             <ul>
+                {% for data in last_reported %} 
+                 <li> {{ data.outbreak }} </li>
+                {% endfor %}
+                </ul> 
+            {% else %} 
+                <strong> No outbreak data</strong>
+            {% endif %}
+        </div>
+
+        <h2>Newly Emerged Outbreak</h2>
+        
+        <div>
+            {% if datas %}
+                <ul>
+                {% for data in datas %} 
+                <li>{{ data.outbreak }}</li>
+                {% endfor %}
+                </ul>
+            {% else %} 
+                <strong> No outbreak data</strong>
+            {% endif %}
+        </div>
+
+        <h2>Highest Reported Outbreak</h2>
+        
+        <div>
+            {% if datas %}
+                <ul>
+                {% for data in datas %} 
+                <li>{{ data.outbreak }}</li>
+                {% endfor %}
+                </ul>
+            {% else %} 
+                <strong> No outbreak data</strong>
+            {% endif %}
+        </div>
+
         <div>
             <a href="/medplus/about/">About</a><br />
         </div>
