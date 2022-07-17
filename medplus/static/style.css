@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+
+body {
+  overflow-x: hidden;
+  font-family: 'Lato', sans-serif;
+  color:#505962;
+}
+
+/*---- Nav ---*/
+.navbar {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: .9rem;
+  letter-spacing: .1rem;
+  background-color: rgba(0,0,0,0.6) !important;
+  height: 10%;
+}
+
+.navbar-brand img {
+  height: 2rem;
+  padding: 0%;
+  margin: 0%;
+}
+
+.navbar-nav li {
+  padding-right: .7rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: white;
+  padding-top: .8rem;
+}
+
+.navbar-dark .navbar-nav .nav-link.active, 
+.navbar-dark .navbar-nav .nav-link:hover {
+  color:#41c272;
+}
+
+/*---- landing page ----*/
+.home-inner {
+  background-image: url(/static/img/landing.jpg);
+  opacity: 1.4;
+  filter: brightness(35%);
+ 
+}
+
+.caption {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  top: 38%;
+  z-index: 1;
+  color: white;
+  text-transform: uppercase;
+}
+
+.caption h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: .3rem;
+  text-shadow: .1rem .1rem .8rem black;
+  padding-bottom: 1rem;
+}
+
+.caption h3 {
+  font-size: 1.5rem;
+  text-shadow: .1rem .1rem .5rem black;
+  padding-bottom: 1.6rem;
+}
+
+.btn-lg {
+  border-width: medium;
+}
+
+.narrow {
+  width: 75%;
+  margin: 1.5rem auto;
+  padding-top: 2rem;
+}
+.narrow h1 {
+    font-size: 2.4rem;
+  }
+.btn-secondary {
+  border-width: medium;
+  border-radius: 0;
+  padding: .6rem 1.2rem;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin: 1rem;
+  border-color: #1EBBA3;
+  background-color: #1EBBA3;
+  color: white;
+}
+.btn-secondary:hover,
+.btn-secondary:focus {
+  border-color: #189582;
+  background-color: #189582;
+  color: white;
+}
+
+/*---- dashboard page ----*/
+.dashboard {
+  border-style: inset;
+  border-color: #41c272;
+  width: auto;
+  padding: auto;
+  background-color: #ccd7cf
+}
+
+
+/*============ BOOTSTRAP BREAK POINTS:
+
+Extra small (xs) devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap
+
+Small (sm) devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... }
+
+Medium (md) devices (tablets, 768px and up)
+@media (min-width: 768px) { ... }
+
+Large (lg) devices (desktops, 992px and up)
+@media (min-width: 992px) { ... }
+
+Extra (xl) large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... }
+
+=============*/

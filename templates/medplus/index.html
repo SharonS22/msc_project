@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>MEDplus</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="/static/bootstrap-4.1.3-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/static/style.css">
+	<link rel="stylesheet" href="/static/css/fixed.css">
+
+</head>
+
+<body data-spy="scroll" data-target="#navbarResponsive">
+
+<!-- Start Home-->
+<div id="home">
+
+<!--Navigation-->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#">
+        <img src="/static/img/logo.png" alt="logo" height="57"/>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon">
+    </button>
+
+    <div class="collapse navbar-collapse" id="#navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+            <li class="nav-item "><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
+            <li class="nav-item "><a class="nav-link" href="#search">Search</a></li>
+            <li class="nav-item"><a class="nav-link" href="#data">View Data</a></li>
+            <li class="nav-item"><a class="nav-link" href="#map">Map</a></li>
+            <li class="nav-item"><a class="nav-link" href="#subscribe">Subscribe</a></li>
+            
+        </ul>
+    </div>
+</nav>
+ 
+<!-- End of nav-->
+
+<!--Start landing page-->
+<div class="landing">
+    <div class="home-wrap">
+        <div class="home-inner">
+
+        </div>
+    </div>
+</div>
+
+<div class="caption text-center">
+    <h1>Welcome to MEDplus</h1>
+    <h3>Monitoring Emerging Diseases (MEDplus)</h3>
+    <a class="btn btn-outline-light bth-lg" href="#dashboard">Get Started</a>
+</div>
+<!--End landing page-->
+
+</div>
+<!--End of Home-->
+
+<!-- Start about-->
+<div id="about" class="offset">
+<div class="col-12 narrow text-center">
+    <h3 class ="heading"> About</h3>
+    <p class="detail"> Monitoring Emerging Diseases Plus is an advanced version of the orginal website promedmail.org - which is a program of the International 
+        Society for Infectious Diseases. We aim to provide essential source of information about outbreaks using this website.
+        <br>
+        <br> MEDplus operates in connection with the ProMED but with a detailed insight into the emerging outbreaks and its distribution across the world. 
+    </p>
+</div>
+</div>
+<!--End of about-->
+
+<!-- Start dashboard-->
+<div id="dashboard" class="offset">
+<!--Start of Jumbotron-->    
+<div class="jumbotron">
+<div class="narrow">
+    <div class="col-12 text-center">
+      <h3 class="heading">Dashboard</h3>  
+      <div class="heading-underline"></div>
+    </div>
+
+    <div class="row text-center">
+        <div class="col-md-4">
+            <i class="fas fa-thinfa-chart-scatter" style="font-size:48px"></i>
+            <h4>Last Reported Outbreak</h4>
+            <div class="dashboard">
+                <p> {% if last_reported %}
+                    <ul>
+                       {% for d in last_reported %} 
+                        <p> {{ d.outbreak }} - {{d.full_loc}} </p>
+                       {% endfor %}
+                       </ul> 
+                   {% else %} 
+                       <strong> No outbreak data</strong>
+                   {% endif %}
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <i class="fas fa-thin fa-chart-line" style="font-size:48px"></i>
+            <h4>Highest Reported Outbreak</h4>
+            <div class="dashboard">
+                <p> {% if last_reported %}
+                    <ul>
+                       {% for d in highest_reported %} 
+                        <p> {{ d.outbreak }}  </p>
+                       {% endfor %}
+                       </ul> 
+                   {% else %} 
+                       <strong> No outbreak data</strong>
+                   {% endif %}
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <i class="fas fa-thin fa-file-circle-plus" style="font-size:48px"></i>
+            <h4>Newly Emerged Outbreak</h4>
+            <div class="dashboard">
+                <p> {% if newly_emerged %}
+                    <ul>
+                       {% for d in newly_emerged %} 
+                        <p> {{ d.outbreak }} - {{d.full_loc}} </p>
+                       {% endfor %}
+                       </ul> 
+                   {% else %} 
+                       <strong> No outbreak data</strong>
+                   {% endif %}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div> <!--End of narrow-->
+</div> <!--End of Jumbotron--> 
+
+</div>
+<!--End of dashboard-->
+
+<!-- Start search-->
+<div id="search" class="offset">
+    
+</div>
+<!--End of search-->
+
+<!-- Start map-->
+<div id="map" class="offset">
+    
+</div>
+<!--End of map-->
+
+<!-- Start view data-->
+<div id="data" class="offset">
+    
+</div>
+<!--End of view data-->
+
+
+<!-- Start subscribe-->
+<div id="subscribe" class="offset">
+    
+</div>
+<!--End of subscribe-->
+
+
+
+
+
+
+
+
+
+
+
+<!--- Script Source Files -->
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
+<script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
+<!--- End of Script Source Files -->
+
+</body>
+</html>
+
+
+
+
+<!--- Check out my courses! -->
+<div class="udemy-course" style="position: fixed; bottom: 0; right: 0; margin-bottom: -5px; z-index: 100;">
+	<a href="https://w3newbie.com/courses" target="_blank" style="z-index: 999!important; cursor: pointer!important;"><img src="https://www.w3newbie.com/wp-content/uploads/nuno-course-banner.png" style="max-width: 100%; min-width: 100%;"></a>
+</div>
