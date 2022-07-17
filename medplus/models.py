@@ -11,8 +11,6 @@ class data(models.Model):
 
     class Meta:
         verbose_name_plural = 'datas'
-        #db_table = 'medplus_data'
-       # managed = False
     
     def __str__(self):
         return self.outbreak

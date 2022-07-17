@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <title>
+        Medplus
+    </title>
+    
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/docs/4.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.css" rel="stylesheet">
+    </head>
+    
+    <!-- Navigation -->
+        <header>
+            <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-info p-0">
+                <a class="navbar-brand p-2" href="{% url 'medplus:dashboard' %}">Medplus</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item "><a class="nav-link" href="{% url 'medplus:about' %}">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'medplus:dashboard' %}">Dashboard</a></li>
+                        <li class="nav-item "><a class="nav-link" href="{% url 'medplus:search' %}">Search</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'medplus:view' %}">View Data</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'medplus:map' %}">Map</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'medplus:subscribe' %}">Subscribe</a></li>
+                      
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+    <body>
+        <!-- Body block -->
+        <div class="container p-3 my-3 border, col-sm">
+             {% block body_block %}
+                {% endblock %}
+        </div>
+        
+        
+        <!-- FOOTER --> 
+        <div class="d-flex p-2 justify-content-center align-items-center align-self-center text-center"
+            <footer class="footer mt-auto py-3">
+                <div class="container">
+                    <span class="text-muted">Copyright © 2022 University of Glasgow - MSc Project_S1623993. All rights reserved.</span>
+                </div>
+            </footer>
+        </div>
+    
+        
+        <!-- Bootstrap core JavaScript -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.2/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-zDnhMsjVZfS3hiP7oCBRmfjkQC4fzxVxFhBx8Hkz2aZX8gEvA/jsP3eXRCvzTofP" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+        <script src="https://getbootstrap.com/docs/4.2/examples/dashboard/dashboard.js"></script>
+    </body>
+</html>
