@@ -6,6 +6,12 @@ body {
   color:#505962;
 }
 
+.offset::before {
+  display: block;
+  content: "";
+  height: 4rem;
+  margin-top: -4rem;
+}
 /*---- Nav ---*/
 .navbar {
   text-transform: uppercase;
@@ -31,10 +37,11 @@ body {
   padding-top: .8rem;
 }
 
-.navbar-dark .navbar-nav .nav-link.active, 
-.navbar-dark .navbar-nav .nav-link:hover {
-  color:#41c272;
+.navbar-dark .navbar-nav .nav-link:hover,  .navbar-dark .navbar-nav .nav-link:active {
+  color:#41c272 !important;
 }
+
+
 
 /*---- landing page ----*/
 .home-inner {
@@ -98,13 +105,107 @@ body {
   color: white;
 }
 
-/*---- dashboard page ----*/
+/*---- About page ----*/
+.narrow {
+  width: 75%;
+  margin: 1.5rem auto;
+  padding-top: 2rem;
+}
+
+.narrow h1 {
+  font-size: 2.4rem;
+}
+
+/*---- Dashboard page ----*/
 .dashboard {
   border-style: inset;
   border-color: #41c272;
   width: auto;
   padding: auto;
   background-color: #ccd7cf
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  padding: 2rem 0 3.5rem;
+  border-radius: 0;
+}
+
+h3.heading {
+  font-size: 1.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.9rem;
+}
+
+.heading-underline {
+  width: 3rem;
+  height: .2rem;
+  background-color: #41c272;
+  margin: 0 auto 1rem;
+}
+
+.feature svg.svg-inline--fa {
+  color: #41c272;
+  padding-bottom: .8rem;
+}
+
+.feature h4 {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  padding-bottom: .4rem;
+}
+
+.feature p {
+  font-size: 1.1rem;
+  text-align: center;
+}
+/*----Search page----*/
+.search-box {
+  top: 50%;
+  left:50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.input-group.md-form.form-sm.form-2 input {
+  border: 1px solid #bdbdbd;
+  border-top-left-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+  
+
+}
+
+.input-group.md-form.form-sm.form-2 input.lime-border {
+  border: 1px solid #189582;
+}
+
+.fixed-background {
+  background-image: url(/static/img/search.jpg);
+  opacity: 1.4;
+  filter: brightness(35%);
+ 
+}
+
+/*---Contact--*/
+footer {
+  background-color: #40474e;
+  color: white;
+  padding: 0rem 0 2rem; 
+}
+
+footer img {
+  height: 12rem;
+}
+
+footer a {
+  color: white;
+}
+
+hr.socket {
+  width: 100%;
+  border-top: .2rem solid #666b71;
+  margin-top: 3rem;
 }
 
 

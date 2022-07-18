@@ -35,6 +35,7 @@
             <li class="nav-item"><a class="nav-link" href="#data">View Data</a></li>
             <li class="nav-item"><a class="nav-link" href="#map">Map</a></li>
             <li class="nav-item"><a class="nav-link" href="#subscribe">Subscribe</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             
         </ul>
     </div>
@@ -65,6 +66,7 @@
 <div id="about" class="offset">
 <div class="col-12 narrow text-center">
     <h3 class ="heading"> About</h3>
+    <div class="heading-underline"></div>
     <p class="detail"> Monitoring Emerging Diseases Plus is an advanced version of the orginal website promedmail.org - which is a program of the International 
         Society for Infectious Diseases. We aim to provide essential source of information about outbreaks using this website.
         <br>
@@ -83,58 +85,65 @@
       <h3 class="heading">Dashboard</h3>  
       <div class="heading-underline"></div>
     </div>
-
+    <!--Start of content---> 
     <div class="row text-center">
         <div class="col-md-4">
-            <i class="fas fa-thinfa-chart-scatter" style="font-size:48px"></i>
-            <h4>Last Reported Outbreak</h4>
-            <div class="dashboard">
-                <p> {% if last_reported %}
-                    <ul>
-                       {% for d in last_reported %} 
-                        <p> {{ d.outbreak }} - {{d.full_loc}} </p>
-                       {% endfor %}
-                       </ul> 
-                   {% else %} 
-                       <strong> No outbreak data</strong>
-                   {% endif %}
-                </p>
+            <div class="feature">
+                <i class="fas fa-thin fa-file-chart-column" style="font-size:48px"></i>
+                <h4>Last Reported Outbreak</h4>
+                <div class="dashboard">
+                    <p> {% if last_reported %}
+                        <ul>
+                            {% for d in last_reported %} 
+                            <p> {{ d.outbreak }} <br> {{d.full_loc}} </p>
+                            {% endfor %}
+                            </ul> 
+                        {% else %} 
+                            <strong> No outbreak data</strong>
+                        {% endif %}
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-4">
-            <i class="fas fa-thin fa-chart-line" style="font-size:48px"></i>
-            <h4>Highest Reported Outbreak</h4>
-            <div class="dashboard">
-                <p> {% if last_reported %}
-                    <ul>
-                       {% for d in highest_reported %} 
-                        <p> {{ d.outbreak }}  </p>
-                       {% endfor %}
-                       </ul> 
-                   {% else %} 
-                       <strong> No outbreak data</strong>
-                   {% endif %}
-                </p>
+            <div class="feature">
+                <i class="fas fa-thin fa-chart-line" style="font-size:48px"></i>
+                <h4>Highest Reported Outbreak</h4>
+                <div class="dashboard">
+                    <p> {% if last_reported %}
+                        <ul>
+                        {% for d in highest_reported %} 
+                            <p> {{ d.outbreak }}  </p>
+                        {% endfor %}
+                        </ul> 
+                    {% else %} 
+                        <strong> No outbreak data</strong>
+                    {% endif %}
+                    </p>
+                </div>
             </div>
         </div>
 
         <div class="col-md-4">
-            <i class="fas fa-thin fa-file-circle-plus" style="font-size:48px"></i>
-            <h4>Newly Emerged Outbreak</h4>
-            <div class="dashboard">
-                <p> {% if newly_emerged %}
-                    <ul>
-                       {% for d in newly_emerged %} 
-                        <p> {{ d.outbreak }} - {{d.full_loc}} </p>
-                       {% endfor %}
-                       </ul> 
-                   {% else %} 
-                       <strong> No outbreak data</strong>
-                   {% endif %}
-                </p>
+            <div class="feature">
+                <i class="fas fa-thin fa-square-virus" style="font-size:48px"></i>
+                <h4>Newly Emerged Outbreak</h4>
+                <div class="dashboard">
+                    <p> {% if newly_emerged %}
+                        <ul>
+                        {% for d in newly_emerged %} 
+                            <p> {{ d.outbreak }} <br> {{d.full_loc}} </p>
+                        {% endfor %}
+                        </ul> 
+                    {% else %} 
+                        <strong> No outbreak data</strong>
+                    {% endif %}
+                    </p>
+                </div>
             </div>
         </div>
+        <!--End of content--> 
 
     </div>
 </div> <!--End of narrow-->
@@ -145,6 +154,39 @@
 
 <!-- Start search-->
 <div id="search" class="offset">
+<div class="fixed-background">
+<div class="row-dark">
+    <div class="col-12 text-center">
+        <h3 class="heading">Search</h3>  
+        <div class="heading-underline"></div>
+    </div>
+<!--Search box-->
+       <!-- <div class="col-md-6 col-lg-6 col-11 mx-auto my-auto search-box">
+           <div class="input-group form-container">
+            <input type="text" name="search" class="form=control serach-input" placeholder="Search" autofocus="autofocus" autocomplete="on">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger">Search</button>
+    --->
+        <div class="input-group md-form form-sm form-2 pl-0">
+            <input class="form-control my-0 py-1 lime-border" type="text" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <span class="input-group-text lime lighten-2" id="basic-text1"><i class="fas fa-search text-grey"
+                  aria-hidden="true"></i></span>
+            </div>
+        </div>
+<!--End of search box-->
+      <div class="col-md-4">
+        <h3>Search By Date</h3>
+      </div>
+</div><!--End row dark-->
+
+    <div class="fixed-wrap">
+        <div class="fixed">
+        </div>
+    </div>
+
+</div><!--End of fixed background-->
     
 </div>
 <!--End of search-->
@@ -165,6 +207,29 @@
 <!-- Start subscribe-->
 <div id="subscribe" class="offset">
     
+</div>
+<!--End of subscribe-->
+
+<!-- Start contact-->
+<div id="contact" class="offset">
+<footer>
+    <div class="row justify-content-center">
+        <div class="col-md-5 text-center">
+            <img src="/static/img/logo.png">
+            <p>At our core is a collection of data detailing the outbreaks in the world. Everything you need to be updated
+                with the latest outbreaks.
+            </p>
+            <strong>Contact Info</strong>
+            <p> Location: 2 University Avenue, Glasgow, G12 8QQ</p>
+            <p> Telephone: +44 1413302000</p>
+            <p> Fax: +44 1413302009</p>
+            <p> Email: medplus@email.co.uk</p>
+        </div>
+
+        <hr class="socket">
+        &copy; MEDplus.
+    </div>
+</footer>
 </div>
 <!--End of subscribe-->
 
