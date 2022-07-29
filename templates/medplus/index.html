@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-{% load staticfiles %}
+{% load static %}
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>MEDplus</title>
+
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="/static/bootstrap-4.1.3-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="/static/style.css">
@@ -13,9 +14,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
    
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </head>
 
 <body data-spy="scroll" data-target="#navbarResponsive">
@@ -118,7 +116,7 @@
                 <i class="fas fa-thin fa-chart-line" style="font-size:48px"></i>
                 <h4>Highest Reported Outbreak</h4>
                 <div class="dashboard">
-                    <p> {% if last_reported %}
+                    <p> {% if highest_reported %}
                         <ul>
                         {% for d in highest_reported %} 
                             <p> {{ d.outbreak }}  </p>
@@ -206,23 +204,70 @@
 </div>
 <!--End of search-->
 
-<!-- Start map-->
-<div id="map" class="offset">
-    
-</div>
-<!--End of map-->
-
 <!-- Start view data-->
-<div id="data" class="offset">
+<div id="data" class="offset mx-5 px-5">
     <div class="narrow">
         <div class="col-12 text-center">
           <h3 class="heading">View Data</h3>  
           <div class="heading-underline"></div>
         </div>
     </div>
+
+    
+    <div class="row row-cols-1 row-cols-sm-3 g-3">
+    <div class="col">
+        <div class="card" style="width: 24rem">
+        <img src="/static/img/highest_no.png" class="card-img-top" />
+        <div class="card-body">
+            <h5 class="card-title">Total Number of Outbreaks</h5>
+            <p class="card-text">
+            {{ count }}
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 24rem">
+        <img src="/static/img/largest_outbreak.jpg" class="card-img-top"/>
+        <div class="card-body">
+            <h5 class="card-title">Continent with Highest Number of Outbreaks</h5>
+            <p class="card-text">
+            {{ highest_case }}
+            </p>
+        </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card" style="width: 24rem">
+        <img src="/static/img/continent.png" class="card-img-top"/>
+        <div class="card-body">
+            <h5 class="card-title">Continent with Lowest Number of Outbreaks</h5>
+            <p class="card-text">
+            Add fucntion
+            </p>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <div class="col-md-6 mx-auto">    
+        <canvas id="myChart" width="300" height="200"></canvas>
+    </div>
+    
 </div>
 <!--End of view data-->
 
+<!-- Start map-->
+<div id="map" class="offset">
+    <div class="narrow">
+        <div class="col-12 text-center">
+          <h3 class="heading">Map</h3>  
+          <div class="heading-underline"></div>
+        </div>
+    </div>
+    
+</div>
+<!--End of map-->
 
 <!-- Start subscribe-->
 <div id="subscribe" class="offset">
@@ -232,27 +277,27 @@
           <div class="heading-underline"></div>
         </div>
 
-    <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
-            <div class="subscription-wrapper">
-              <div class="d-flex subscription-content justify-content-between align-items-center flex-column flex-md-row text-center text-md-left">
-                <h3 class="flex-fill">Subscribe <br> to our notifications</h3>
-                <form action="#" class="row flex-fill">
-                  <div class="col-lg-7 my-md-2 my-2">
-                    <input type="email" class="form-control px-4 border-0 w-100 text-center text-md-left" id="email" placeholder="Your Email" name="email">
-                  </div>
-                  <div class="col-lg-5 my-md-2 my-2">
-                    <button type="submit" class="btn btn-primary btn-lg border-0 w-100">Subscribe Now</button>
-                  </div>
-                </form>
-              </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                <div class="subscription-wrapper">
+                    <div class="d-flex subscription-content justify-content-between align-items-center flex-column flex-md-row text-center text-md-left">
+                    <h3 class="flex-fill">Subscribe <br> to our notifications</h3>
+                    <form action="#" class="row flex-fill">
+                        <div class="col-lg-7 my-md-2 my-2">
+                        <input type="email" class="form-control px-4 border-0 w-100 text-center text-md-left" id="email" placeholder="Your Email" name="email">
+                        </div>
+                        <div class="col-lg-5 my-md-2 my-2">
+                        <button type="submit" class="btn btn-primary btn-lg border-0 w-100">Subscribe Now</button>
+                        </div>
+                    </form>
+                    </div>
+                </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
+
     </div>
-    
 </div>
 <!--End of subscribe-->
 
@@ -290,6 +335,8 @@
 
 
 <!--- Script Source Files -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/static/js/jquery-3.3.1.min.js"></script>
 <script src="/static/bootstrap-4.1.3-dist/js/bootstrap.min.js"></script>
 <script src="https://use.fontawesome.com/releases/v5.5.0/js/all.js"></script>
@@ -298,9 +345,8 @@
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap4.min.js"></script>
 
-
+<!-- Data table - search page -->
 <script>
-
     $(document).ready( function () {
     $('#myTable').DataTable({
         order: [[0, 'asc']],
@@ -308,21 +354,51 @@
     } );
 </script>
 
+<!-- Chart data - view_data page -->
+<script>       
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [{% for label in labels %} '{{ label }}', {% endfor %}],
+        datasets: [{
+            label: 'Number of outbreaks',
+            data: [{% for defaultDatas in defaultData %} '{{ defaultDatas }}', {% endfor %}],
+
+            backgroundColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+    });
+
+</script>
+
 
 <!--- End of Script Source Files -->
 
 </body>
 </html>
-
-<!--
-    $(document).ready(function () {
-        $("#myInput").on("keyup", function() {
-            var value = $(this).val().toLowerCase();
-            $("#myTable tr").filter(function() {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-            $("#myTable").DataTable();
-        });
-    });
-
--->
