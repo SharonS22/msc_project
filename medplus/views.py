@@ -1,9 +1,5 @@
-from django.http import JsonResponse
 from django.shortcuts import render
 from medplus.models import data
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
 
 def index(request):
     # query database to list the latest 5 outbreaks
@@ -35,13 +31,25 @@ def index(request):
     labels = ['Asia', 'Africa', 'Europe', 'North America', 'Oceania', 'South America', 'Global']
     defaultData = [asia, africa, europe, north_america, oceania, south_america, global_count]
 
-    #highest cases continent
-    values = [defaultData]
-    highest_case = values[0]
-    for number in values:
-        if number > highest_case:
-            highest_case = number
+    #highest/lowest cases continent
+    values = {
+        'Asia' : asia,
+        'Africa' : africa,
+        'Europe' : europe,
+        'North America' : north_america,
+        'Oceania' : oceania,
+        'South America' : south_america,
+        'Global' : global_count,
+    }
 
+    highest_case =  list(values.values())
+    highest_case_key =  list(values.keys())
+    highest_case_continent = highest_case_key[highest_case.index(max(highest_case))]
+
+    lowest_case = list(values.values())
+    lowest_case_key =  list(values.keys())
+    lowest_case_continent = lowest_case_key[lowest_case.index(min(lowest_case))]
+   
     context_dict = {
     'last_reported' : last_reported,
     'newly_emerged' : newly_emerged,
@@ -50,6 +58,7 @@ def index(request):
     'count' : count,
     'labels' : labels,
     'defaultData' : defaultData,
-    'highest_case' : highest_case,
+    'highest_case_continent' : highest_case_continent,
+    'lowest_case_continent' : lowest_case_continent,
     }
     return render(request, 'medplus/index.html', context_dict)

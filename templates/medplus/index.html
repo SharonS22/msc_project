@@ -216,7 +216,7 @@
     
     <div class="row row-cols-1 row-cols-sm-3 g-3">
     <div class="col">
-        <div class="card" style="width: 24rem">
+        <div class="card h-100" style="width: 24rem">
         <img src="/static/img/highest_no.png" class="card-img-top" />
         <div class="card-body">
             <h5 class="card-title">Total Number of Outbreaks</h5>
@@ -227,23 +227,23 @@
         </div>
     </div>
     <div class="col">
-        <div class="card" style="width: 24rem">
+        <div class="card h-100" style="width: 24rem" >
         <img src="/static/img/largest_outbreak.jpg" class="card-img-top"/>
         <div class="card-body">
             <h5 class="card-title">Continent with Highest Number of Outbreaks</h5>
             <p class="card-text">
-            {{ highest_case }}
+            {{ highest_case_continent }}
             </p>
         </div>
         </div>
     </div>
     <div class="col">
-        <div class="card" style="width: 24rem">
+        <div class="card h-100" style="width: 24rem">
         <img src="/static/img/continent.png" class="card-img-top"/>
         <div class="card-body">
             <h5 class="card-title">Continent with Lowest Number of Outbreaks</h5>
             <p class="card-text">
-            Add fucntion
+                {{ lowest_case_continent }}
             </p>
         </div>
         </div>
