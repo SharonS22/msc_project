@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
-
-
 </head>
 
 <body data-spy="scroll" data-target="#navbarResponsive">
@@ -27,7 +25,7 @@
 <!--Navigation-->
 <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">
-        <img src="/static/img/logo1.png" alt="logo" height="62"/>
+        <img src="/static/img/logo.png" alt="logo" />
         Medplus
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
@@ -310,7 +308,8 @@
 <footer>
     <div class="row justify-content-center">
         <div class="col-md-5 text-center">
-            <img src="/static/img/logo2.png">
+            <img src="/static/img/logo.png">
+            <br> </br>
             <p>At our core is a collection of data detailing the outbreaks in the world. Everything you need to be updated
                 with the latest outbreaks.
             </p>
@@ -327,15 +326,6 @@
 </footer>
 </div>
 <!--End of contact-->
-
-
-
-
-
-
-
-
-
 
 
 <!--- Script Source Files -->
@@ -388,29 +378,54 @@
             borderWidth: 1
                 }]
             },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
-                }
+            
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
             }
+        }
     });
 
 </script>
-
+<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js"></script>
 <script>
     mapboxgl.accessToken = 'pk.eyJ1Ijoic3NoYWppMzkiLCJhIjoiY2w2ZXRzcWV0MHJjdTNibjJ3azAydzFsZiJ9.fyMUpgJTq1slrWFpbe4wWg';
-        const map = new mapboxgl.Map({
-            container: 'map', // container ID
-            style: 'mapbox://styles/mapbox/streets-v11', // style URL
-            center: [0, 0],
-            zoom: 1.2,
-            projection: 'naturalEarth'
-           
-    });
+        
+    const mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+    mapboxClient.geocoding
+        .forwardGeocode({
+            query: 'Brazil, South America', 
+            autocomplete: false,
+            limit: 1
+        })
+
+        .send()
+        .then((response) => {
+            if (
+                !response ||
+                !response.body ||
+                !response.body.features ||
+                !response.body.features.length
+            ) {
+                console.error('Invalid response:');
+                console.error(response);
+                return;
+            }
+            
+            const feature = response.body.features[0];
+        
+            const map = new mapboxgl.Map({
+                container: 'map', // container ID
+                style: 'mapbox://styles/mapbox/streets-v11', // style URL
+                center: [0,0],
+                zoom: 1.2,
+                projection: 'naturalEarth'
+            
+            });
 
     map.on('style.load', () => {
         map.setFog({}); // Set the default atmosphere style
@@ -418,6 +433,9 @@
 
     map.addControl(new mapboxgl.NavigationControl());
     map.addControl(new mapboxgl.FullscreenControl());
+    new
+        mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+   });
 </script>
 
 

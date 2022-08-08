@@ -127,8 +127,8 @@ body {
   border-color: #a74493;
   width: auto;
   padding: auto;
-  background: linear-gradient(80deg, #a74493 0%, #37a299 50%) !important;
-  color: black !important;
+  background: linear-gradient(80deg,  #3eaaa1 0%, #ba73ac 50%) !important;
+  color: white !important;
 }
 
 .jumbotron {
@@ -170,7 +170,8 @@ h3.heading {
 /*----Search page----*/
 
 table th {
-  background: linear-gradient(80deg, #41c272 0%, #7ccd20 100%) !important;
+  
+  background: linear-gradient(80deg,  #3eaaa1 0%, #ba73ac 50%) !important;
   text-align: center !important;
   color: black !important;
 }
@@ -201,12 +202,12 @@ div.dataTables_wrapper div.dataTables_filter input {
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover {
   color: black !important;
   border: 1px solid #41c272!important;
-  background: linear-gradient(80deg, #41c272 0%, #7ccd20 100%) !important;
+  background: linear-gradient(80deg,  #3eaaa1 0%, #ba73ac 50%) !important;
   box-shadow: none !important;
 }
 
 .paginate_button.active .page-link {
-  background: linear-gradient(80deg, #41c272 0%, #7ccd20 100%) !important;
+  background: linear-gradient(80deg,  #3eaaa1 0%, #ba73ac 50%) !important;
   border: 1px solid black !important;
   color: black !important;
   box-shadow: none !important;
@@ -270,7 +271,7 @@ div.dataTables_wrapper div.dataTables_filter input {
   padding: 70px 50px;
   z-index: 1;
   width: 100%;
-  background: linear-gradient(80deg, #41c272 0%, #7ccd20 100%) !important;
+  background: linear-gradient(80deg,  #3eaaa1 0%, #ba73ac 50%) !important;
   color: white;
   top: 100%;
 }
