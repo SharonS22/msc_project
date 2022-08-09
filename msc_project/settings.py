@@ -29,7 +29,6 @@ SECRET_KEY = 'o+#_^_rp4jibc*%(oqa8w5p9-ejzjg*1s2(c!2s(56-5+$8r_p'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'sshaji.pythonanywhere.com'
 ]
 
 
@@ -43,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'medplus',
-    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -129,11 +127,3 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR, ]
 MEDIA_ROOT = MEDIA_DIR
 MEDIA_URL = '/media/'
-
-REST_FRAMEWORK = {
-    # Use Django's standard `django.contrib.auth` permissions,
-    # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
-    ]
-}
